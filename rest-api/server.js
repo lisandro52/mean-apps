@@ -1,4 +1,5 @@
-﻿/// <reference path="typings/node/node.d.ts"/>
+﻿/// <reference path="../typings/node/node.d.ts"/>
+
 // CALL THE PACKAGES
 var express = require('express');
 var app = express();
@@ -34,6 +35,9 @@ app.use(morgan('dev'));
 var apiRoutes = require('./app/routes/api')(app, express);
 app.use('/api', apiRoutes);
 
+apiRoutes.get('/me', function(req, res) {
+    res.send(req.decoded);
+});
 
 // Main catch-all route
 // Send users to frontend
