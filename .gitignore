@@ -33,3 +33,7 @@ obj
 node_modules
 #Visual Studio Code typings
 typings
+#Bower
+bower_components
+#Bower libs: install them from command line
+libs
