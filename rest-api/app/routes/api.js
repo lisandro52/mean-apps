@@ -92,14 +92,10 @@ module.exports = function (app, express) {
 
         }
     });
-
-
-    //test route to make sure everything is working
-    //accessed at GET http://localhost:8080/api
-    apiRouter.get('/', function (req, res) {
-        res.json({ message: 'welcome to our api!' });
+    
+    apiRouter.get('/me', function(req, res) {
+        res.send(req.decoded);
     });
-
 
     //on routes that end in /users
     apiRouter.route('/users')
