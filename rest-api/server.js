@@ -29,15 +29,16 @@ mongoose.connect(config.database);
 //log all requests to the console
 app.use(morgan('dev'));
 
+//set static files location
+// used for requests that our frontend will make
+app.use(express.static(__dirname + '/public'));
 
 // REGISTER OUR ROUTES
 //all of our routes will be prefixed with /api
 var apiRoutes = require('./app/routes/api')(app, express);
 app.use('/api', apiRoutes);
 
-apiRoutes.get('/me', function(req, res) {
-    res.send(req.decoded);
-});
+
 
 // Main catch-all route
 // Send users to frontend
