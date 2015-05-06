@@ -1,4 +1,4 @@
-/// <reference path="../../../../typings/angularjs/angular.d.ts"/>
+
 angular.module('userService', [])
 
 .factory('User', function($http){
@@ -21,7 +21,7 @@ angular.module('userService', [])
 	};
 	
 	//update a usesr
-	userFactory.upadte = function(id, userData) {
+	userFactory.update = function(id, userData) {
 		return $http.put('/api/users/' + id, userData);
 	};
 	
